@@ -2,6 +2,10 @@
 
 A Market-Native Governance Framework
 
+![Status](https://img.shields.io/badge/status-conceptual-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 ---
 
 ## Overview
@@ -50,8 +54,14 @@ This document outlines:
 ## Repository Structure
 
 ```
-/ARO_Whitepaper_Restored.md   → Core whitepaper
 /README.md                    → Project overview
+/docs/ARO_Whitepaper.md       → Full governance framework
+/docs/ARO_Conceptual.md       → Conceptual architecture
+/docs/ARO_Implementation.md   → Implementation specifications
+/docs/ARO_Comparison.md       → Comparison with other systems
+/docs/ARO_Challenger.md       → Challenger agent framework
+/contracts/                   → Smart contract specifications
+/agents/                      → Reference agent implementations
 ```
 
 ---
