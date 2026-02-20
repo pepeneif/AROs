@@ -22,7 +22,7 @@ Tokens are loyalty and coordination instruments, not governance ballots.
 
 There are no proposals to vote on. 
 
-Clients express preferences through: holding, buying, selling, or delegating tokens to competing agents.
+Clients express confidence in the managing agent and the organization through: holding, buying, selling, or delegating tokens to competing agents.
 
 Unlike DAOs with democratic voting, AROs are run by agents who can be hired or fired based on performance and unlike DAOs with futarchy methodologies where prediction may control execution but ownership tokens can be misleading and understood as securities — ARO tokens directly determine operational authority through real economic behavior.
 
