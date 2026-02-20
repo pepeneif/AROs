@@ -4,6 +4,8 @@
 
 This document outlines the technical specifications for implementing Agent Run Organizations (AROs) based on the whitepaper framework. The implementation focuses on multi-blockchain compatibility, agent-driven governance, and token-based performance evaluation.
 
+
+
 ## Core Architecture
 
 ### Multi-Blockchain Agent Framework
