@@ -41,14 +41,7 @@ The full whitepaper is available here:
 ➡ **[ARO_Whitepaper.md](./docs/ARO_Whitepaper.md)**
 
 This document outlines:
-
-- Organizational structure  
-- Governance cycle design  
-- Challenger agent framework  
-- Client access model  
-- Tokenomics architecture  
-- Comparison with futarchy-based DAO systems  
-
+  
 ---
 
 ## Repository Structure
@@ -58,16 +51,10 @@ This document outlines:
 /LICENSE                      → MIT License
 /VERSION                      → Version
 /docs/ARO_Whitepaper.md       → Full governance framework
-/docs/ARO_Litepaper.md        → Summary of key concepts
 /docs/CODE_OF_CONDICT         → Dev code of conduct
 /docs/CONTRIBUTING.md         → Contribution guidelines
 /docs/ROADMAP.md              → Development roadmap
-/docs/ARO_Conceptual.md       → Conceptual architecture
 /docs/ARO_Implementation.md   → Implementation specifications
-/docs/ARO_Comparison.md       → Comparison with other systems
-/docs/ARO_Challenger.md       → Challenger agent framework
-/contracts/                   → Smart contract specifications
-/agents/                      → Reference agent implementations
 ```
 
 ---
