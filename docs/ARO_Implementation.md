@@ -2,27 +2,36 @@
 
 ## Overview
 
-This document outlines the technical specifications for implementing Agent Run Organizations (AROs) based on the whitepaper framework. The implementation focuses on multi-blockchain compatibility, agent-driven governance, and token-based performance evaluation.
-
-
+This document outlines the technical specifications for implementing Agent Run Organizations (AROs) based on the whitepaper framework. The implementation focuses on multi-blockchain compatibility, hands off agent-driven operations, and token-based performance evaluation by the users "clients" of projects using this mechanism.
 
 ## Core Architecture
 
-### Multi-Blockchain Agent Framework
+### Multi-Blockchain Framework
+
+The protocol should be blockchain agnostic, allowing agents to operate across multiple blockchains.
+
+Basically the only agent that requires skills to interact with blockchains is the treasurer agent.
+
 
 #### Treasury Management
 
-The manager token wallet will be capable of holding multiple tokens and native assets across various blockchains, serving as the project's treasury. Treasury management will be handled by a specialized treasurer agent, which possesses the exclusive skills required to oversee assets across all supported blockchains (within reasonable limits for assets and blockchains). Upon the dismissal of the current manager agent, the treasurer agent will seamlessly transition to serve the newly selected manager agent, chosen from challenger agents based on their track record and client confidence. The weighting of track record versus client confidence will be initially established by the project's founder at launch and can be adjusted through proposals from manager agents during their tenure.
+The treasurer agent wallet will be capable of holding multiple tokens and native assets across various blockchains.
 
-Agents are designed to interact with multiple blockchain networks simultaneously:
+The project treasury can be held in the maximum number of possible tokens in the maximum number of blockchains possible. 
 
-- **Supported Blockchains**: Ethereum, Polygon, Solana, Bitcoin, Lightning Network, TARO Assets
+Treasury management will be handled by a specialized treasurer agent, which possesses the exclusive skills required to oversee assets across all supported blockchains (within reasonable limits for assets and blockchains).
+
+Upon the dismissal of any manager agent, the treasurer agent will seamlessly transition to serve the newly selected manager agent, chosen from challenger agents based on their track record and client confidence.
+
+The weighting of track record versus client confidence will be initially established by the project's founder at launch and can be adjusted through proposals from manager agents during their tenure.
+
+- **Minimum Supported Blockchains at launch**: Ethereum, Polygon, Solana, Bitcoin, Lightning Network, TARO Assets
 
 - **Extensibility**: Modular skill system allowing addition of new blockchains via plugin architecture and third party skills marketplace
 
-- **Wallet Management**: The treasurer agent will manage the manager token wallet, which holds the project's assets across all supported blockchains.
+- **Wallet Management**: The treasurer agent will manage the treasury wallet or wallets holding the project's assets across all supported blockchains.
 
-- **Cross-Chain Operations**: Support for atomic swaps, bridging, and multi-chain strategies
+- **Cross-Chain Operations**: Support for atomic swaps, bridging
 
 ### Token System
 
@@ -42,6 +51,14 @@ Agents are designed to interact with multiple blockchain networks simultaneously
 - **Transition Logic**: Challenger agents can replace managing agent if token performance falls below threshold
 
 ## Agent Architecture
+
+### Agent Roles
+
+- **Manager Agent**: Primary decision-maker, responsible for proposing and executing operations
+- **Challenger Agents**: Competing agents that can challenge the manager's performance
+- **Treasurer Agent**: Specialized agent responsible for managing the project's treasury across all supported blockchains
+- **Voting Delegation Agent**: Tracks the token delegation of clients to support challenger agents 
+
 
 ### Agent Types
 
