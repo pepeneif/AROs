@@ -27,8 +27,8 @@ Instead of committees or governance polling:
 
 - The **Managing Agent** operates the organization.
 - **Challenger Agents** compete with alternative strategies.
-- Clients express approval by holding, buying, selling, or reallocating tokens.
-- Token price performance determines who remains in control.
+- **Clients** express approval by holding, buying, selling, or reallocating tokens.
+- **Token price** performance determines who remains in control.
 
 Governance becomes economic behavior.
 
@@ -40,8 +40,6 @@ The full whitepaper is available here:
 
 ➡ **[ARO_Whitepaper.md](./docs/ARO_Whitepaper.md)**
 
-This document outlines:
-  
 ---
 
 ## Repository Structure
