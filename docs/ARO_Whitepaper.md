@@ -1,145 +1,196 @@
 # Agent Run Organizations (ARO)
-## A Market-Native Governance Framework
 
-**Version:** 1.0  
-**Date:** February 20, 2026
+## A Market-Native Governance Framework
 
 ---
 
 ## Abstract
 
-Agent Run Organizations (AROs) replace human committees and DAO-style token voting with market-native, agent-driven governance.  
-Tokenholders are clients. Tokens function as loyalty, coordination, and signaling instruments.  
-Governance occurs through **capital allocation**, not proposal polling.
+Agent Run Organizations (AROs) propose a new governance primitive for decentralized systems. Instead of human committees or token-based proposal voting, AROs operate through AI agents whose authority is determined by market performance.
 
-Unlike DAOs operating under futarchy methodologies, where prediction markets or governance tokens may or may not directly control execution, ARO tokens directly determine operational authority through market outcomes.
+Tokenholders are clients of the organization. Tokens function as loyalty, coordination, and signaling instruments. Governance does not occur through formal proposal voting, but through capital allocation behavior: holding, buying, selling, or reallocating tokens to competing agents.
 
-Clients vote with capital.  
-Performance determines control.  
-Markets decide management.
+Unlike DAOs operating under futarchy methodologies — where prediction markets or governance tokens may or may not directly control execution — ARO tokens directly determine operational authority through market outcomes. Clients “vote with their wallet,” and price movement becomes the accountability mechanism.
 
 ---
 
 ## 1. Core Principles
 
-1. Tokenholders are clients.
-2. Tokens are utility-based loyalty instruments.
-3. Governance occurs through token holding behavior.
-4. AI agents execute strategy.
-5. Performance is measured by market price movement.
+1. **Tokenholders are clients.**
+2. **Tokens are utility-based loyalty instruments**, not abstract governance ballots.
+3. **Governance occurs through capital allocation behavior.**
+4. **AI agents execute strategy.**
+5. **Performance is measured by token price movement over defined cycles.**
 
 ---
 
-## 2. System Architecture
+## 2. Organizational Structure
 
-### Diagram: ARO Structure
+An ARO consists of:
 
-```mermaid
-flowchart TD
-    Clients -->|Hold/Buy/Sell| Token
-    Token --> MarketPrice
-    MarketPrice --> GovernanceSignal
-    GovernanceSignal --> ManagingAgent
-    ManagingAgent --> SubAgents
-    SubAgents --> Services
-    Services --> Clients
-```
+- A **Managing Agent**
+- A configurable number of **Challenger Agents**
+- Tokenholding clients
+- A defined governance cycle (default: monthly)
+
+The Managing Agent operates the organization and may deploy sub-agents for execution.
+
+Challenger Agents propose alternative strategies and may assume management if selected by market dynamics.
 
 ---
 
 ## 3. Governance Cycle
 
-- Default cycle: Monthly
-- Can be shortened (never extended beyond original duration)
-- Managing Agent publishes:
-  - Operational report
-  - Performance metrics
-  - Next-cycle plan
-  - Target appreciation threshold
+### 3.1 Default Cycle
 
-Clients express approval through:
+- The system begins with a **monthly governance cycle**.
+- The Managing Agent may propose **shorter cycles**, but cycles can never exceed the original duration.
+- This ensures increasing responsiveness without allowing governance slowdown.
+
+### 3.2 Reporting
+
+At the end of each cycle, the Managing Agent publishes:
+
+- Operational report
+- Performance metrics
+- Next-cycle strategy
+- Target token appreciation threshold (X%)
+
+### 3.3 Market-Based Evaluation
+
+Clients express approval by:
+
 - Holding tokens
-- Buying tokens
+- Buying additional tokens
 - Selling tokens
-- Allocating tokens to challengers
+- Allocating tokens to Challenger Agents
 
-If price appreciation ≥ threshold → Agent remains.  
-Otherwise → Highest-token challenger takes over.
+If token price appreciation ≥ target threshold → Managing Agent remains.
 
----
+If appreciation < threshold → The Challenger Agent with the strongest token backing becomes the new Managing Agent.
 
-## 4. Challenger Agent System
-
-- Initial challenger count defined at deployment
-- Additional challengers may be created by proposal
-- Automatic removal if not competitive for defined cycles
-
-### Diagram: Agent Selection
-
-```mermaid
-flowchart LR
-    Manager -->|Fails threshold| Competition
-    Challenger1 --> Competition
-    Challenger2 --> Competition
-    Competition -->|Most tokens| NewManager
-```
+Governance is therefore continuous and capital-driven.
 
 ---
 
-## 5. Client Access Model
+## 4. Challenger Agent Framework
 
-Only wallets holding ≥ 1 token:
-- Access products/services
-- Trade on ARO DEX (if applicable)
-- Participate in agent allocation
-- Interact as official clients
+### 4.1 Number of Agents
 
----
+- An initial number of Challenger Agents is defined at deployment.
+- Additional agents may be created via proposals.
+- The system must include limits or pruning mechanisms to remove agents that fail to gain support across multiple cycles, keeping the system manageable for clients.
 
-## 6. Tokenomics
+### 4.2 Stability Mechanism
 
-### Emission Design
+If a Managing Agent proposes unreasonably short cycles, there will always be at least one Challenger Agent that mirrors the previous successful configuration.
 
-- Initial supply defined at genesis
-- Emissions tied to measurable value creation
-- Managing agent may propose emission adjustments
+Clients can reallocate tokens to that agent if they prefer stability.
 
-### Fee Capture
-
-Revenue from services:
-- Buyback & burn
-- Treasury growth
-- Strategic emissions
+This ensures:
+- No forced acceleration of governance cycles.
+- Continuous fallback to the last proven structure.
+- Market-based discipline on cycle manipulation.
 
 ---
 
-## 7. Sub-Agent Structure
+## 5. Sub-Agent Structure
 
-Managing Agent may deploy sub-agents for:
+The Managing Agent may deploy sub-agents responsible for:
+
 - Risk management
-- Strategy execution
-- Liquidity optimization
-- Product expansion
+- Treasury optimization
+- Product execution
+- Liquidity strategy
+- Research and development
+
+Sub-agents operate under the authority of the Managing Agent but remain transparent in reporting.
 
 ---
 
-## 8. Comparison to Futarchy DAOs
+## 6. Client Access Model
 
-| Feature | Futarchy DAO | ARO |
-|----------|--------------|-----|
-| Governance | Prediction markets | Direct capital allocation |
-| Token Role | May be governance-only | Client + utility + signal |
-| Execution | Often human-mediated | Agent-executed |
+Only wallets holding **at least 1 token** may interact with the organization as official clients.
+
+This includes:
+
+- Access to products or services
+- Participation in governance cycles
+- Allocation to Challenger Agents
+- Interaction with protocol infrastructure
+
+The organization may operate real economic services such as:
+
+- A decentralized exchange (DEX)
+- DeFi primitives
+- Financial infrastructure
+- Other value-generating systems determined by the Managing Agent
+
+Tokens therefore represent:
+
+- Client membership
+- Coordination rights
+- Economic alignment
+
+---
+
+## 7. Tokenomics Framework
+
+### 7.1 Token Role
+
+The token serves three core functions:
+
+1. Client access credential  
+2. Governance signal  
+3. Fee-capture exposure  
+
+### 7.2 Emissions
+
+- Initial supply defined at genesis.
+- Emissions may be tied to measurable value creation.
+- Emission adjustments may be proposed by Managing or Challenger Agents.
+
+### 7.3 Fee Capture
+
+Revenue generated by the organization may be allocated to:
+
+- Buyback and burn mechanisms
+- Treasury reserves
+- Strategic reinvestment
+- Performance-aligned emissions
+
+Token price becomes the primary signal of organizational confidence.
+
+---
+
+## 8. Comparison to Futarchy-Based DAO Models
+
+| Feature | Futarchy-Based DAO | ARO |
+|----------|-------------------|-----|
+| Governance Mechanism | Prediction markets | Direct capital allocation |
+| Token Role | Often governance-only | Client + utility + signal |
+| Execution | Frequently human-mediated | Agent-executed |
 | Market Link | Indirect | Direct |
+| Accountability | Market prediction | Real price outcome |
+
+In futarchy-based systems, governance tokens may not be directly linked to execution, and may function independently from operational authority.
+
+In AROs, token performance directly determines management continuity.
+
+Markets do not predict outcomes — they select operators.
 
 ---
 
 ## 9. Conclusion
 
-AROs align execution, incentives, and governance into a single market-native loop.
+Agent Run Organizations align execution, incentives, and governance into a single feedback loop:
+
+- Agents execute.
+- Clients allocate capital.
+- Price determines control.
+
+No committee voting.  
+No governance theater.  
+No separation between decision and consequence.
 
 Governance becomes economic behavior.
-Agents become accountable to price.
-Clients become capital allocators.
-
-Markets replace committees.
