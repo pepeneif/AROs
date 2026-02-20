@@ -55,8 +55,8 @@ This document outlines:
 
 ```
 /README.md                    → Project overview
-/LICENSE.md                   → MIT License
-/CODE_OF_CONDUCT.md           → Contributor guidelines
+/LICENSE                      → MIT License
+/VERSION                      → Version
 /docs/ARO_Whitepaper.md       → Full governance framework
 /docs/ARO_Conceptual.md       → Conceptual architecture
 /docs/ARO_Implementation.md   → Implementation specifications
