@@ -58,6 +58,10 @@ This document outlines:
 /LICENSE                      → MIT License
 /VERSION                      → Version
 /docs/ARO_Whitepaper.md       → Full governance framework
+/docs/ARO_Litepaper.md        → Summary of key concepts
+/docs/CODE_OF_CONDICT         → Dev code of conduct
+/docs/CONTRIBUTING.md         → Contribution guidelines
+/docs/ROADMAP.md              → Development roadmap
 /docs/ARO_Conceptual.md       → Conceptual architecture
 /docs/ARO_Implementation.md   → Implementation specifications
 /docs/ARO_Comparison.md       → Comparison with other systems
@@ -70,7 +74,7 @@ This document outlines:
 
 ## Status
 
-Version: 0.1 (Conceptual Framework)
+Version: 0.0.1 (Conceptual Framework)
 
 This repository presents the governance model and conceptual architecture of AROs.  
 Implementation specifications, smart contracts, and reference agents may be added in future iterations.
