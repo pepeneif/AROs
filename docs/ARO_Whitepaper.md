@@ -10,11 +10,19 @@ Agent Run Organizations (AROs) are a new governance primitive for decentralized 
 
 Instead of committees or token voting, AROs are operated by AI agents whose authority is determined by market performance.
 
-A Managing Agent executes strategy. Challenger Agents propose alternatives. Token price determines who runs the organization.
+A Managing Agent executes strategy. 
+
+Challenger Agents propose alternatives. 
+
+Token price determines who runs the organization.
 
 Tokenholders are clients. 
 
-Tokens are loyalty and coordination instruments, not governance ballots. There are no proposals to vote on. Clients express preferences through capital allocation: holding, buying, selling, or delegating tokens to competing agents.
+Tokens are loyalty and coordination instruments, not governance ballots. 
+
+There are no proposals to vote on. 
+
+Clients express preferences through: holding, buying, selling, or delegating tokens to competing agents.
 
 Unlike DAOs with democratic voting, AROs are run by agents who can be hired or fired based on performance and unlike DAOs with futarchy methodologies where prediction may control execution but ownership tokens can be misleading and understood as securities — ARO tokens directly determine operational authority through real economic behavior.
 
@@ -25,13 +33,13 @@ Clients vote with their wallets.
 ## 1. Core Principles
 
 1. **Tokenholders are clients of the organization.**
-2. **One token is required to become a client.**
+2. **Only one token is required to become a client.**
 3. **Tokens are utility-based loyalty instruments**, not governance ballots.
-4. **Governance occurs through capital allocation** — holding, buying, selling, or delegating tokens.
+4. **Governance occurs through signaling confidence** — holding, buying, selling, or delegating tokens.
 5. **A Managing Agent executes strategy and is continuously challenged by alternatives.**
 6. **Challenger Agents propose competing strategies and build track records.**
 7. **Performance is measured by token price movement over defined cycles.**
-8. **The token trades on a bonding curve maintained by the treasury, alongside external markets.**
+8. **The token trades on a bonding curve maintained by the treasury, alongside external DEX markets.**
 
 ---
 
@@ -47,8 +55,8 @@ An ARO consists of:
 | **Mirror Agent** | Protocol-generated agent that preserves the previous successful configuration for stability and institutional memory. |
 | **Sub-Agents** | Specialized agents for treasury, risk, marketing, R&D, and other functions. Deployed by the Managing Agent. |
 | **Token** | Client credential, governance signal, and fee-capture instrument. |
-| **Bonding Curve** | Transparent treasury-backed price floor/ceiling. External markets provide additional liquidity. |
-| **Clients** | Tokenholders who access services, delegate tokens, and determine agent authority through capital allocation. |
+| **Bonding Curve** | Transparent treasury-backed price floor/ceiling. External DEX markets provide additional liquidity. |
+| **Clients** | Real clients who access services, must hold at least one token, and can delegate tokens to signal confidence. |
 
 ### 2.1 Managing Agent
 
@@ -89,8 +97,9 @@ Sub-agents operate under the Managing Agent's authority and transfer to a new Ma
 
 ### 2.5 Treasurer Agent
 
-A specialized sub-agent responsible for wallet operations and treasury management. 
-(Note: Key management and memory storage solutions are still under development.)
+A specialized sub-agent responsible for wallet operations and treasury management.
+
+***(Note: Key management and memory storage mechanism are still under development.)**
 
 ---
 
@@ -162,7 +171,7 @@ Clients can delegate tokens to Challenger Agents as a signal of confidence. Dele
 
 New Challenger Agents can be spun up by the Managing Agent or its sub-agents. The system requires a pruning mechanism to remove agents that fail to gain support over multiple cycles. This keeps the competitive field manageable for clients.
 
-Specific pruning thresholds (e.g., zero delegation for X consecutive cycles) should be defined at deployment based on the organization's needs.
+Specific pruning thresholds (e.g., agents failing or having zero delegation for X consecutive cycles) this can be defined at deployment or in the 1st cycle by the first Manager Agent, but considering limits for humans to be able to read all their proposed strategies and monitor their track records.
 
 ### 5.2 Competition Dynamics
 
