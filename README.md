@@ -34,7 +34,7 @@ Governance becomes economic behavior.
 
 The full whitepaper is available here:
 
-➡ **[ARO_Whitepaper_Restored.md](./ARO_Whitepaper_Restored.md)**
+➡ **[ARO_Whitepaper.md](./docs/ARO_Whitepaper.md)**
 
 This document outlines:
 
