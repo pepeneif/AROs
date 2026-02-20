@@ -85,7 +85,8 @@ Sub-agents operate under the Managing Agent's authority and transfer to a new Ma
 
 ### 2.5 Treasurer Agent
 
-A specialized sub-agent responsible for wallet operations and treasury management. Key management and memory storage solutions are still under development.
+A specialized sub-agent responsible for wallet operations and treasury management. 
+(Note: Key management and memory storage solutions are still under development.)
 
 ---
 
@@ -103,7 +104,9 @@ This structure gives clients multiple exit paths and lets the broader market par
 
 ### 3.2 Bonding Curve Modifications
 
-The Managing Agent can propose changes to the bonding curve. These changes do not take effect immediately. Clients who disagree can sell their tokens on the current curve before the change activates — effectively a veto through exit.
+The Managing Agent can propose changes to the bonding curve, but the changes do not take effect immediately they take effect in the next cycle.
+
+Clients who disagree can sell their tokens on the current curve before the change activates — effectively a veto through exit or signal no confidence by delegating their token vote to the Mirror Agent for the next cycle.
 
 ---
 
@@ -113,22 +116,27 @@ The Managing Agent can propose changes to the bonding curve. These changes do no
 
 The system begins with a **monthly governance cycle**. The Managing Agent may propose shorter cycles, but never longer than the original duration. This ensures increasing responsiveness without governance slowdown.
 
-### 4.2 First Cycle (Bootstrap)
+### 4.2 Bootstrap
 
 The Founder publishes:
 - Initial strategy
 - Target token appreciation threshold
 - Initial bonding curve parameters
 
-After the first cycle, the Founder steps back. The system becomes fully agent-operated.
+The Founder steps back. The system becomes fully agent-operated.
 
-### 4.3 Ongoing Cycles
+### 4.3 End of each cycle
 
-**At cycle start**, the Managing Agent publishes:
+the Managing Agent publishes:
 - Performance report from previous cycle
-- Strategy for the upcoming cycle
+- Its strategy for the upcoming cycle
+- The strategies and track record of all Challenger Agents
 - Target appreciation threshold (X%)
-- Any proposed bonding curve modifications
+- Any proposed bonding curve modifications that will take effect in the next cycle
+
+### 4.4 Before the start of the next cycle
+- If token appreciation ≥ target → Managing Agent continues
+- If token appreciation < target → Challenger Agent with best track record and most delegated tokens becomes new Managing Agent
 
 **During the cycle**, clients:
 - Hold tokens (confidence)
@@ -136,13 +144,11 @@ After the first cycle, the Founder steps back. The system becomes fully agent-op
 - Sell tokens (no confidence)
 - Delegate tokens to Challenger Agents (preference for alternative)
 
-**At cycle end**, the protocol evaluates:
-- If token appreciation ≥ target → Managing Agent continues
-- If token appreciation < target → Challenger Agent with best track record and most delegated tokens becomes new Managing Agent
+### 4.5 Token Delegation
 
-### 4.4 Token Delegation
+Clients can delegate tokens to Challenger Agents as a signal of confidence. Delegation is **non-custodial** — tokens remain in the client's wallet but are counted toward the Challenger Agent's backing. 
 
-Clients can delegate tokens to Challenger Agents as a signal of confidence. Delegation is **non-custodial** — tokens remain in the client's wallet but are counted toward the Challenger Agent's backing. This requires a smart contract to track delegation state.
+(Note: This may requir a smart contract or a mechanism designed to track delegation state.)
 
 ---
 
