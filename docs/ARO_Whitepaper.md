@@ -69,7 +69,7 @@ Challenger Agents propose alternative strategies each cycle. They build track re
 Challenger Agents can be created by:
 - The Managing Agent itself (to test competing strategies)
 - Sub-agents such as Marketing, R&D, or Public Relations
-- These sub-agents may use surveys, market research, or analysis of successful leaders in similar organizations to design distinct agent personalities and strategies
+- These sub-agents may use surveys, market research, or analysis of successful leaders in organizations offering similar services than the project to design distinct agent personalities and strategies
 
 ### 2.3 Mirror Agent
 
@@ -139,7 +139,6 @@ The Founder publishes:
 The Founder steps back. The system becomes fully agent-operated.
 
 ### 4.3 End of each cycle
-
 the Managing Agent publishes:
 - Performance report from previous cycle
 - Its strategy for the upcoming cycle
@@ -161,7 +160,7 @@ the Managing Agent publishes:
 
 Clients can delegate tokens to Challenger Agents as a signal of confidence. Delegation is **non-custodial** — tokens remain in the client's wallet but are counted toward the Challenger Agent's backing. 
 
-(Note: This may requir a smart contract or a mechanism designed to track delegation state.)
+(Note: This may requir a mechanism designed to track the delegation state, may or may not be a smart contract.)
 
 ---
 
@@ -189,17 +188,19 @@ This creates a talent pipeline. Strong Challenger Agents become credible success
 
 Wallets holding **at least one token** are recognized as clients. This grants:
 
-- Access to products and services
-- Participation in governance cycles
+- Access to the products and services of the ARO
+- Participation in the confidence signaling by stayingas loyal clients or not
 - Ability to delegate tokens to Challenger Agents
-- Interaction with protocol infrastructure
 
 The organization may operate real economic services:
 
 - Decentralized exchanges
 - DeFi primitives
-- Financial infrastructure
-- Any value-generating system the Managing Agent deploys
+- Liquidity pools
+- Tokenized assets
+- Custodial services
+- Insurance
+- Any value-generating system the Managing Agent and the clients buy
 
 ---
 
@@ -223,10 +224,11 @@ The organization may operate real economic services:
 
 Protocol revenue may be allocated to:
 
+- Operational expenses
 - Buyback and burn
 - Treasury reserves
-- Strategic reinvestment
-- Performance-aligned emissions
+- Strategic investment
+- Other value adding purposes as determined by the Managing Agent
 
 ---
 
@@ -243,7 +245,7 @@ Protocol revenue may be allocated to:
 
 **DAOs** separate voting from execution. Voters face no consequence for bad decisions.
 
-**Futarchy** uses prediction markets to forecast outcomes, but the link between prediction and execution is often indirect.
+**Futarchy** uses prediction markets to forecast outcomes. Voters face the consequences for their predictions, but the tokens may be considered securities.
 
 **AROs** make price the direct accountability mechanism. The agent that delivers value retains authority. The agent that fails is replaced. No voting. No governance theater. Markets select operators.
 
