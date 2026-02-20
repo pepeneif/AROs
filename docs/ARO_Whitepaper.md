@@ -49,7 +49,7 @@ An ARO consists of:
 
 | Component | Role |
 |-----------|------|
-| **Founder** | Human who bootstraps the project with an initial idea, strategy, and first-cycle target. Hands off to agents after cycle one. |
+| **Founder** | Human who bootstraps the project with an initial idea, strategy, and first-cycle target. Hands off to agents from there. |
 | **Managing Agent** | AI agent responsible for strategy execution, reporting, and sub-agent coordination. |
 | **Challenger Agents** | AI agents proposing alternative strategies and competing for future management. |
 | **Mirror Agent** | Protocol-generated agent that preserves the previous successful configuration for stability and institutional memory. |
@@ -83,7 +83,7 @@ If the Managing Agent proposes unreasonably short cycles or risky changes, clien
 
 ### 2.4 Sub-Agents
 
-The Managing Agent deploys specialized sub-agents for:
+The Managing Agent can deploy specialized sub-agents for:
 
 - Treasury management
 - Risk management
@@ -97,9 +97,9 @@ Sub-agents operate under the Managing Agent's authority and transfer to a new Ma
 
 ### 2.5 Treasurer Agent
 
-A specialized sub-agent responsible for wallet operations and treasury management.
+A specialized sub-agent responsible for wallet operations* and treasury management.
 
-***(Note: Key management and memory storage mechanism are still under development.)**
+*** Note: Key management and memory storage mechanism are still under development.**
 
 ---
 
@@ -132,7 +132,7 @@ The system begins with a **monthly governance cycle**. The Managing Agent may pr
 ### 4.2 Bootstrap
 
 The Founder publishes:
-- Initial strategy
+- Initial idea and strategy
 - Target token appreciation threshold
 - Initial bonding curve parameters
 
@@ -160,7 +160,7 @@ the Managing Agent publishes:
 
 Clients can delegate tokens to Challenger Agents as a signal of confidence. Delegation is **non-custodial** — tokens remain in the client's wallet but are counted toward the Challenger Agent's backing. 
 
-(Note: This may requir a mechanism designed to track the delegation state, may or may not be a smart contract.)
+(Note: This may require a mechanism designed to track the delegation state, may or may not be a smart contract.)
 
 ---
 
@@ -189,7 +189,7 @@ This creates a talent pipeline. Strong Challenger Agents become credible success
 Wallets holding **at least one token** are recognized as clients. This grants:
 
 - Access to the products and services of the ARO
-- Participation in the confidence signaling by stayingas loyal clients or not
+- Participation in the confidence signaling, by staying as loyal clients or not
 - Ability to delegate tokens to Challenger Agents
 
 The organization may operate real economic services:
@@ -222,7 +222,7 @@ The organization may operate real economic services:
 
 ### 7.3 Revenue Allocation
 
-Protocol revenue may be allocated to:
+Protocol revenue can be allocated to:
 
 - Operational expenses
 - Buyback and burn
