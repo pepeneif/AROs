@@ -68,7 +68,7 @@ This document outlines:
 
 ## Status
 
-Version: 1.0 (Conceptual Framework)
+Version: 0.1 (Conceptual Framework)
 
 This repository presents the governance model and conceptual architecture of AROs.  
 Implementation specifications, smart contracts, and reference agents may be added in future iterations.
