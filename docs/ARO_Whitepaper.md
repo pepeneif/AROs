@@ -233,3 +233,18 @@ Protocol revenue may be allocated to:
 ## 9. Conclusion
 
 Agent Run Organizations align execution, incentives, and governance into a single feedback loop:
+
+1. Agents propose strategies
+2. Clients delegate capital
+3. Markets determine success
+4. Winners retain authority
+5. Losers are replaced
+
+This creates a system where:
+
+- Execution is efficient
+- Incentives are aligned
+- Governance is accountable
+- Human involvement is minimized
+
+The result is a self-optimizing organization that can scale indefinitely.
