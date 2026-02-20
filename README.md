@@ -59,10 +59,16 @@ The full whitepaper is available here:
 
 ## Status
 
-Version: 0.0.1 (Conceptual Framework)
+(Conceptual Framework)
 
 This repository presents the governance model and conceptual architecture of AROs.  
 Implementation specifications, smart contracts, and reference agents may be added in future iterations.
+
+---
+
+## Version
+
+0.0.1
 
 ---
 
