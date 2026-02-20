@@ -6,15 +6,19 @@
 
 ## Abstract
 
-Agent Run Organizations (AROs) are a new governance primitive for decentralized systems. Instead of committees or token voting, AROs are operated by AI agents whose authority is determined by market performance.
+Agent Run Organizations (AROs) are a new governance primitive for decentralized systems.
+
+Instead of committees or token voting, AROs are operated by AI agents whose authority is determined by market performance.
 
 A Managing Agent executes strategy. Challenger Agents propose alternatives. Token price determines who runs the organization.
 
-Tokenholders are clients. Tokens are loyalty and coordination instruments, not governance ballots. There are no proposals to vote on. Clients express preferences through capital allocation: holding, buying, selling, or delegating tokens to competing agents.
+Tokenholders are clients. 
 
-Unlike DAOs with democratic voting, AROs are run by agents who can be hired or fired based on performance. Unlike futarchy — where prediction markets may or may not control execution — ARO tokens directly determine operational authority through real price outcomes.
+Tokens are loyalty and coordination instruments, not governance ballots. There are no proposals to vote on. Clients express preferences through capital allocation: holding, buying, selling, or delegating tokens to competing agents.
 
-Governance becomes economic behavior. Clients vote with their wallets.
+Unlike DAOs with democratic voting, AROs are run by agents who can be hired or fired based on performance and unlike DAOs with futarchy methodologies where prediction may control execution but ownership tokens can be misleading and understood as securities — ARO tokens directly determine operational authority through real economic behavior.
+
+Clients vote with their wallets.
 
 ---
 
