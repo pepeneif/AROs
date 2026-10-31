@@ -29,7 +29,7 @@ The weighting of track record versus client confidence will be initially establi
 
 - **Extensibility**: Modular skill system allowing addition of new blockchains via plugin architecture and third party skills marketplace
 
-- **Wallet Management**: The treasurer agent will manage the treasury wallet or wallets holding the project's assets across all supported blockchains.
+- **Wallet Management**: The treasurer agent operates the treasury wallet or wallets holding the project's assets across all supported blockchains, under the succession safety rules: key rotation on every leadership change, M-of-N multisig with at least one non-agent signer, a 72h transition freeze, and a 5% per-cycle withdrawal cap (see Whitepaper §4.7). The non-agent signer is a **timelocked execution key with delay-only power** — no veto, no proposal rights — publicly identified and rotated on every succession.
 
 - **Cross-Chain Operations**: Support for atomic swaps, bridging
 
@@ -41,12 +41,16 @@ The weighting of track record versus client confidence will be initially establi
   - Client access credential
   - Governance signaling mechanism
   - Performance-based rewards distribution
-  - Fee capture exposure
+  - Service access (no claim on protocol revenue)
 
 ### Governance Mechanism
 
-- **Performance Metric**: Token price appreciation over governance cycles
+- **Performance Metric**: Manipulation-resistant performance score over governance cycles (whole-cycle, multi-venue, commit-reveal price measurement with an assigned deterministic committer; median-of-medians with ±25% outlier discard). The **price signal alone decides transitions**; audited exogenous revenue is a **separate gate** (emissions/withdrawals, `K=2` freeze), not a weighted share of the transition (weakest-link, see Whitepaper §4.6). Revenue counting excludes related-party payments, uses cash basis for delivered services, and applies a payer-concentration cap (no payer > 20%, top-5 ≤ 60%).
+  - Robustness gates: venue depth ≥ max(USD 500,000, 10× cost-to-move-X%), ≥20% float participation, ≥3 venues of which ≥2 not treasury-seeded; below the gates the cycle resolves as *indecided* (caretaker continuation capped at two cycles).
+  - No-revenue freeze: if audited exogenous revenue fails to grow for two consecutive cycles (K=2), emissions and treasury withdrawals freeze.
 - **Cycle Duration**: Configurable (default: monthly), proposed by managing agent
+- **Anti-APCD controls**: bonding curve excluded from the governance feed; per-client inventory cap (5% of float, governance weight capped alike); aggregate per-cycle redemption cap; correlated-accumulation detection across wallets
+- **Revenue definition (anti self-reference)**: only fees collected in external assets for services delivered; membership-token trading volume on any venue never counts toward revenue
 - **Evaluation Criteria**: Freely proposed by agents, influenced by client buying/selling behavior
 - **Transition Logic**: Challenger agents can replace managing agent if token performance falls below threshold
 

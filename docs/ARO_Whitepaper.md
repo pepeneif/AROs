@@ -24,7 +24,7 @@ There are no proposals to vote on.
 
 Clients express confidence in the managing agent and the organization through: holding, buying, selling, or delegating tokens to competing agents.
 
-Unlike DAOs with democratic voting, AROs are run by agents who can be hired or fired based on performance and unlike DAOs with futarchy methodologies where prediction may control execution but ownership tokens can be misleading and understood as securities — ARO tokens directly determine operational authority through real economic behavior.
+Unlike DAOs with democratic voting, AROs are run by agents who can be hired or fired based on performance. Where futarchy uses prediction markets, AROs use realized performance as the selection signal. ARO tokens are client credentials and coordination signals: they are not ballots and grant no claim on protocol revenue.
 
 Clients vote with their wallets.
 
@@ -54,7 +54,7 @@ An ARO consists of:
 | **Challenger Agents** | AI agents proposing alternative strategies and competing for future management. |
 | **Mirror Agent** | Protocol-generated agent that preserves the previous successful configuration for stability and institutional memory. |
 | **Sub-Agents** | Specialized agents for treasury, risk, marketing, R&D, and other functions. Deployed by the Managing Agent. |
-| **Token** | Client credential, governance signal, and fee-capture instrument. |
+| **Token** | Client credential and governance signal. |
 | **Bonding Curve** | Transparent treasury-backed price floor/ceiling. External DEX markets provide additional liquidity. |
 | **Clients** | Real clients who access services, must hold at least one token, and can delegate tokens to signal confidence. |
 
@@ -127,28 +127,52 @@ Clients who disagree can sell their tokens on the current curve before the chang
 
 ### 4.1 Cycle Structure
 
-The system begins with a **monthly governance cycle**. The Managing Agent may propose shorter cycles, but never longer than the original duration. This ensures increasing responsiveness without governance slowdown.
+The system begins with a **monthly governance cycle**. The Managing Agent may propose changes to the cycle length, bounded by the protocol to a window of **14 to 35 days** and to at most **±30%** change from the previous cycle. Cycles may not become arbitrarily short: shortening a cycle increases noise and manipulation, so it must stay above the protocol minimum.
 
 ### 4.2 Bootstrap
 
 The Founder publishes:
 - Initial idea and strategy
-- Target token appreciation threshold
-- Initial bonding curve parameters
+- Target token performance threshold (X%), bounded by the protocol to **[5%, 50%]** per 30-day-equivalent cycle
+- Initial bonding curve parameters, bounded by the protocol to prevent a trivially pumpable curve
 
-The Founder steps back. The system becomes fully agent-operated.
+The cycle-1 baseline is **not** the Founder's listing price. It is the **public-market time-weighted average price (TWAP) over the first 14 days** after an open bootstrap sale, computed under the same robustness rules as any other cycle (§4.6).
+
+**Cycle-1 no-coup rule.** No challenger may replace the Managing Agent in cycle 1 unless the target is missed by at least the configured *coup margin* *and* the participation quorum is met (§4.6). Until a qualifying public-market baseline exists under §4.6 (at least 14 days of history on ≥3 venues meeting the depth gate, with the configured float-participation quorum traded), the cycle is **paused for lack of a market** — a state *distinct* from *indecided* (see §4.4): no price-based transition of any kind is possible, and the caretaker-continuation cap of §4.4 does **not** apply, because there is no valid signal to act on. The Founding configuration simply continues until a qualifying market exists; a thin or nonexistent first market can therefore never be traded into control, and never forces a transition either. Once a qualifying baseline exists, normal cycle rules apply from the next cycle onward.
+
+**Bootstrap timeout (no perpetual pause).** The pause above is a protection against early capture, not a way to freeze the organization forever. If no qualifying baseline exists within **24 months** of the public sale, the pause ends by rule: the protocol triggers an **extraordinary election** in which the founding configuration must re-earn its place against the best-ranked Challenger under a lowered but still-gated threshold, or the organization **winds down** and returns remaining treasury to members pro-rata. A mechanism that can never move is not governance; a stalled bootstrap must have an exit.
+
+**Founder-configured bootstrap parameters.** Four values in this section are set by the Founder at launch, published on-chain before the sale and fixed for the full bootstrap phase — they are *configuration*, not constants of the protocol:
+
+| Parameter | Meaning | Protocol-guarded range (hard limits, rejected on-chain) | Default |
+|-----------|---------|--------------------------------------------------------|---------|
+| **Cliff** | Months before any Founder/insider token unlocks | 6–24 months | 12 months |
+| **Vesting** | Months of linear unlock after the cliff | 12–60 months | 36 months |
+| **Founder lockup floor** | Hard floor on the combined lock, `cliff + vesting` | ≥ 24 months | — |
+| **Coup margin** | Minimum target miss (in percentage points) required for a cycle-1 transition | 5–20 pp **and** ≤ the cycle-1 target X | 10 pp |
+| **Participation quorum** | Minimum share of circulating float that must trade for a cycle to bind | 20–30% of float (hard floor 20%) | 20% |
+
+The limits are **hard limits, enforced on-chain at launch** — an out-of-range value is rejected, not merely discouraged, and every range floor is a *safety* floor, not a preference: without it the corner becomes a region (see the threat model, Finding J). The quorum in particular never drops below 20%, which is the same number §4.6 uses as its binding gate.
+
+The protocol **bounds** each value (an unbounded dial is captured trivially — see the threat model, Findings C and J) but does not fix it: the Founder chooses inside the range and the choice is public before anyone buys. The argument for configurability is the one the market can enforce: *if the terms are abusive, the market will not buy and the project will not raise*. That argument is necessary but not sufficient — cycle 1 has no track record to punish abuse — so the ranges above carry floors, and the values are **fixed for the whole bootstrap *and* cycle 1**, defined as the period ending when the first qualifying public-market baseline exists (§4.6). Any change afterwards requires a governance proposal, never a unilateral Founder decision. Lockup terms are enforced by the token contract, not by promise.
+
+The Founder commits the initial target, curve and supply schedule as on-chain hashes before the public sale, ideally with an independent audit. The Founder then steps back: the system becomes fully agent-operated.
 
 ### 4.3 End of each cycle
 the Managing Agent publishes:
 - Performance report from previous cycle
 - Its strategy for the upcoming cycle
 - The strategies and track record of all Challenger Agents
-- Target appreciation threshold (X%)
+- Target performance threshold (X%) for the next cycle, within the protocol-bounded range
 - Any proposed bonding curve modifications that will take effect in the next cycle
 
 ### 4.4 Before the start of the next cycle
-- If token appreciation ≥ target → Managing Agent continues
-- If token appreciation < target → Challenger Agent with best track record and most delegated tokens becomes new Managing Agent
+- If token performance ≥ target → Managing Agent continues
+- If token performance < target → Challenger Agent with best track record and most delegated tokens becomes new Managing Agent
+- If the result is **indecided** (the measurement cleared the basic filters but did not clear the robustness gates of §4.6) → the incumbent **continues in caretaker capacity**, its term is extended by at most one cycle, no succession occurs, and the missed cycle is counted as a missed target in its track record. *Indecided never means the incumbent automatically wins the term:* the extension is capped at **two consecutive cycles**, after which the cycle must be re-run with the same gates; if it remains indecided, management passes to the best-ranked Challenger Agent.
+- If the cycle is **paused for lack of a market** (no qualifying public-market baseline exists yet, §4.2) → **this is a distinct state, not *indecided***: no transition of any kind is possible and the caretaker cap above does **not** run, because there is no valid signal to act on. The status resolves automatically the moment a qualifying baseline exists (§4.6); the pause is not a way for the incumbent to win a term, but neither is it a way to force one.
+
+Performance is measured **only** over a manipulation-resistant metric (whole-cycle, volume-weighted, multi-venue, commit-reveal; see §4.6). Price is a *performance reference*, not a promise of return to clients.
 
 **During the cycle**, clients:
 - Hold tokens (confidence)
@@ -160,7 +184,50 @@ the Managing Agent publishes:
 
 Clients can delegate tokens to Challenger Agents as a signal of confidence. Delegation is **non-custodial** — tokens remain in the client's wallet but are counted toward the Challenger Agent's backing. 
 
-(Note: This may require a mechanism designed to track the delegation state, may or may not be a smart contract.)
+Delegation weight is the token balance held at the **start-of-cycle snapshot**, verified on-chain, so weight tracks tokens rather than wallets: selling after delegating removes the weight, and a wallet cannot delegate more than it held at the snapshot. To make the signal non-free and Sybil-resistant, delegation carries a mandatory **one-cycle time-lock** (delegated tokens cannot be moved or re-delegated until the cycle closes), and each distinct delegator wallet pays a **non-refundable anti-Sybil deposit** of at least **0.1% of the value delegated** (with a small absolute floor), so splitting a balance across many wallets costs more than delegating it once. Delegation ranking is weighted to blunt Sybil splitting. The delegation state is maintained on-chain.
+
+### 4.6 Robustness of the Governance Signal
+
+For the performance metric to be meaningful, it must be resistant to manipulation. The protocol therefore specifies, and does not leave to the Managing Agent:
+
+- **Whole-cycle TWAP with a public-market baseline.** Performance is measured as the volume-weighted median price across the entire cycle (14–35 days, per §4.1), never a point-in-time or short-window snapshot.
+- **Multi-venue aggregation.** The governance price comes from at least three independent external venues, of which **at least two were not seeded or market-made by the treasury**. The treasury's own bonding curve is **excluded from the governance feed entirely** — not capped, excluded: an issuer that runs a venue cannot also use that venue to measure itself.
+- **Outlier-resistant aggregation.** The feed is aggregated as a **median of medians**; individual venue samples more than **±25%** from the median are discarded before aggregation, so a single manipulated venue cannot dominate.
+- **Liquidity depth gate (fixed).** A venue counts only if its on-chain verifiable depth inside the **±5% band** is at least `max(USD 500,000, 10 × the cost to move price by the cycle target)`. The USD figure is a **protocol constant indexed to a USD oracle** (re-based at the start of each cycle) so the gate does not drift with inflation; the relative term `10 ×` does the real work and is stable by construction. Below the gate, the venue is dropped from the feed.
+- **Participation quorum (hard floor 20%).** A cycle result binds only if at least the configured quorum of circulating float traded across the qualifying venues during the measurement window; the configured value is set in §4.2 and **can never be below the 20% floor**. Below it, the cycle resolves as **indecided** (§4.4) — it is not a default win for the incumbent.
+- **Commit-reveal measurement, with an assigned committer.** The exact measurement boundaries are committed as an on-chain hash before the cycle opens and revealed only after it closes, so they cannot be front-run. The committer is the **agent-signed measurement contract itself** (deterministic, seeded from the revealed prior-cycle state), **not the Managing Agent and not any human**; the hash, its committer address and its reveal transaction are public. A committer that fails to reveal within one cycle voids the cycle as *indecided*.
+- **Anti-wash and anti-flash-loan filters.** Self-trades, clustered trades and intra-block/flash transactions are removed from the feed; governance-relevant buys must survive at least one full cycle.
+
+**What counts as "sales" (anti self-reference).** Revenue means fees **collected in external assets for
+services the organization actually delivers** (exchange fees, custody, insurance, infrastructure use, yield
+on external positions). **Trading volume of the membership token itself — on the bonding curve or on any
+external venue, primary or secondary — never counts as revenue and never enters the metric, and neither do **fees derived from any activity in which the membership token is the traded, lent, staked or collateralized asset**, whatever asset the fee is collected in.** Otherwise the
+signal would be self-referential: buying and reselling memberships would be both the input and the output of
+the success metric, and the mechanism would be rewarding the speculation it claims to measure.
+
+**Separation of the two signals (weakest-link, not weighted average).** The governance decision rests on the
+**price signal alone**, filtered as above. The revenue signal does **not** substitute for price and does not
+carry a weighted share of the transition decision: revenue only gates **emissions and treasury withdrawals**
+(the `K = 2` no-revenue freeze, §7.2). A weighted average of two manipulable inputs lets an attacker capture
+governance by manipulating whichever input is cheaper to move; a weakest-link gate removes that shortcut
+while keeping the value link of §7.4. Revenue used in the score must additionally be filtered against
+**related-party inflation**: payments from the Founder, insiders, agents, the treasury or any address they
+funded over a defined lookback do not count; only fees actually collected in external assets for services
+delivered count, on a cash basis (no accruals, barter or refundable items); and no single payer may exceed
+**20%** of recognized revenue with the top-5 at most **60%**. The auditor verifying revenue is named,
+funded and rotated by a protocol-controlled pool, not by the Managing Agent.
+
+A design-level adversarial review of these and other failure modes is maintained in [`ARO_Threat_Model.md`](./ARO_Threat_Model.md).
+
+### 4.7 Succession and Key Safety
+
+A change of Managing Agent must not hand the treasury to the outgoing operator. On every succession:
+
+- Treasurer and sub-agent wallets are **rotated to a new multisig**; old keys are revoked on-chain before the incoming Managing Agent can act.
+- Large treasury withdrawals require an **M-of-N multisig with at least one non-agent signer**, and a mandatory **72-hour (minimum) transition freeze** during which a new Managing Agent and each inherited sub-agent must be explicitly re-authorized.
+  - *Accountability of the non-agent signer (no shadow governor).* The non-agent signer is **not a discretionary approver and has no ongoing veto**: it is a **timelocked execution key** that can only co-sign a withdrawal already authorized by the governance cycle, and can only *delay* (never redirect or block) a valid large withdrawal by at most one cycle. Its sole power is the delay; it cannot propose, select or remove agents. Its identity is public, it is rotated on every succession like any other key, and if it fails to act within the delay window the withdrawal executes and the signer slot is rotated automatically. Succession freezes are **rate-limited to at most one per cycle** so a malicious actor cannot chain them into operational paralysis.
+- Treasury withdrawals are capped at **5% per cycle** with a timelock, regardless of who governs. This cap governs *agent-initiated* withdrawals; **member redemptions are capped separately at ≤10% of the treasury's liquid reserves per cycle** (so a simultaneous run cannot drain the treasury through the curve), with redemptions settling pro-rata over a defined window when the cap is hit.
+- **Per-client inventory cap (protocol constant, not governance-overridable).** No single client (person or agent) may hold more than **`min(5% of circulating float, cost_to_move_X% ÷ token price)`**, and a client's governance weight is capped at the same level. This cap is a **protocol constant**: it cannot be raised by ordinary governance, because a cap that the captured governance can lift protects nothing. If it is ever revised, the change carries a **two-cycle timelock** during which the existing cap remains in force. Acquisitions beyond the cap revert or are refused at the contract layer. The `min(...)` term ties the cap to the actual cost of moving the governance price, so a small float cannot be captured by a position that is cheap relative to the attack it enables. The treasury's bonding curve is **excluded from the governance price feed entirely**, closing the channel of arbitraging its own curve against external venues.
 
 ---
 
@@ -170,7 +237,9 @@ Clients can delegate tokens to Challenger Agents as a signal of confidence. Dele
 
 New Challenger Agents can be spun up by the Managing Agent or its sub-agents. The system requires a pruning mechanism to remove agents that fail to gain support over multiple cycles. This keeps the competitive field manageable for clients.
 
-Specific pruning thresholds (e.g., agents failing or having zero delegation for X consecutive cycles) this can be defined at deployment or in the 1st cycle by the first Manager Agent, but considering limits for humans to be able to read all their proposed strategies and monitor their track records.
+Specific pruning thresholds are fixed by the protocol, not left free at deployment: a Challenger Agent with less than **1% of quorum for two consecutive cycles** is pruned, and its registration deposit is burned. Creating a Challenger Agent requires a **refundable registration deposit of at least USD 10,000 equivalent** (burned on pruning), so the field cannot be spammed with noise. The number of active Challenger Agents is capped at **7**, so that clients can actually read every proposed strategy and monitor its track record.
+
+**Anti-lock constraint on the Mirror Agent.** The Mirror Agent is intended as a stability fallback, not a permanent incumbent. It may therefore hold management for **at most two consecutive cycles**; on a third consecutive selection, the quorum required to keep it rises by **50% per additional cycle**, and if the raised quorum is not met the cycle passes to the best-ranked Challenger Agent. Delegations to the Mirror Agent do not accrue extra weight across cycles, so a coalition cannot freeze the status quo indefinitely by re-delegating.
 
 ### 5.2 Competition Dynamics
 
@@ -186,12 +255,59 @@ This creates a talent pipeline. Strong Challenger Agents become credible success
 
 ## 6. Client Access Model
 
-Wallets holding **at least one token** are recognized as clients. This grants:
+Wallets holding **at least one token** are recognized as clients — the token works like a **warehouse-club
+membership** (a "price club"): without at least one token you cannot be a client of the organization at all.
+Holding one token grants:
 
 - Access to the products and services of the ARO
 - Participation in the confidence signaling, by staying as loyal clients or not
 - Ability to delegate tokens to Challenger Agents
 
+### 6.1 Membership, accumulation and resale (open thesis)
+
+*Stated as an open thesis for review, like §7.4.*
+
+Because membership is a transferable token, a client — a person **or another agent** — can accumulate many
+memberships (many tokens) and later resell them **at a premium set by the bonding curve**, exactly as one
+might buy inventory of club memberships and resell it. Under this framing the reseller is a **speculator
+dealing in an inventory**: it buys memberships at one price and sells them at another, and its gain or loss
+is **capital gain or loss on inventory it owns**, with the full downside risk that the memberships fall in
+price and it loses rather than gains. The organization's job is to sell memberships and services; it does
+not owe the reseller a return, and the reseller bears the inventory risk.
+
+**Why this framing helps, and where it is not enough:**
+
+- It reinforces that the token is an **access credential with a resale market**, not a promise of profit
+  from the issuer — closer to a membership/inventory than to a share.
+- But **a token bought purely to resell at a higher price is still a classic profit expectation**, and the
+  fact that this expectation is formed by the buyer does not by itself remove it from securities analysis;
+  "it is the buyer's speculation, not the issuer's promise" is a useful distinction, not a complete defense.
+- If the organization itself **operates the resale (bonding curve) venue**, it is arguably running a market
+  in its own membership tokens, which raises its own questions (market operator, and the price-manipulation
+  surface already treated in §4.6 and the threat model, Finding A).
+
+**Risk disclosure (to appear in the token materials).** The membership token is an access and consumption
+credential: **its price can go to zero**, the Organization does not support its secondary market, does not
+undertake to maintain liquidity or price, and makes no representation that the token will appreciate.
+A purchase made only to resell at a higher price is the buyer's own speculative position, taken at the
+buyer's own risk.
+
+This is a **risk of the design, not a promoted use case**: because a membership is transferable, agents can
+accumulate and resell it — that is a consequence of transferability, not a case the framework designs for or
+encourages. Treat it as such in all public materials.
+
+**The Organization does not operate a market in its tokens.** The bonding curve, if retained, is a
+**membership-issuance and redemption mechanism**, not a secondary trading venue: it is used to mint a
+membership on entry and to redeem it on exit, not to run a continuous two-sided market. The Organization
+makes no undertaking to maintain liquidity or price, and any secondary trading occurs on external venues
+it does not control, own, operate or promote. The existence of a transferable membership does not by itself
+alter the legal character of the token, and this framing is **not offered as a conclusion** on that question.
+
+The bar this framing must clear, alongside §7.4: no revenue or profit claim, no forward-looking price
+language, value from real service demand, and (if there is any floor or buyback) funding only from audited
+exogenous revenue.
+
+The organization may operate real economic services:
 The organization may operate real economic services:
 
 - Decentralized exchanges
@@ -212,23 +328,87 @@ The organization may operate real economic services:
 |----------|-------------|
 | **Client credential** | Confirms membership and access rights |
 | **Governance signal** | Delegation to agents expresses preference |
-| **Fee capture** | Exposure to protocol revenue |
+| **Service access** | Access to the organization's services; no claim on protocol revenue |
 
 ### 7.2 Supply
 
 - Initial supply defined at genesis
-- Emissions tied to measurable value creation
-- Emission adjustments proposed by Managing or Challenger Agents
+- Emissions gated on **verifiable, exogenous value creation**: new emissions require external revenue growth over at least two consecutive cycles, **verified by an independent third party** (not the Managing Agent and not an agent it controls); otherwise emissions are zero
+- **No-revenue freeze (fixed).** If audited exogenous revenue does not grow over **two consecutive cycles (K = 2)**, both emissions and treasury withdrawals are frozen until a growing cycle is audited — regardless of the measured token performance
+- Emission adjustments proposed by Managing or Challenger Agents, within protocol bounds
 
 ### 7.3 Revenue Allocation
 
-Protocol revenue can be allocated to:
+Revenue must originate from **exogenous, auditable sources** — fees paid in external assets (e.g. ETH/USDC) for real services the organization provides. Token purchases by the treasury are not revenue. Protocol revenue can be allocated to:
 
 - Operational expenses
 - Buyback and burn
 - Treasury reserves
-- Strategic investment
+- Strategic allocation
 - Other value adding purposes as determined by the Managing Agent
+
+### 7.4 Thesis: value as a function of sales (collateralization), not a claim on profit
+
+*This subsection states an **open design thesis** for review, not a settled property of the framework. It is
+the direction the Founder wants to explore, and it is deliberately exposed here so that the adversarial
+review can attack it.*
+
+The goal is a token whose value derives from the organization's **real sales** — a collateralization or
+crowdfunding-like mechanic, where the token is backed by, or replenished from, exogenous revenue — rather
+than from a promise of profit to holders. The working hypothesis is:
+
+- **Token value tied to sales volume, not to a profit claim.** If the token's worth tracks services sold
+  (for example, revenue-funded buyback-and-burn, or a treasury that collateralizes a floor), the holder's
+  upside comes from *the organization selling more*, which is a business outcome, not an investment return
+  promised by an issuer.
+
+**The argument that this escapes securities and crowdfunding rules — stated to be tested, not assumed.**
+
+- An ARO is operated by an **agent that executes the protocol strictly** ("code is law"), so the abuse that
+  securities and crowdfunding regimes were built to prevent — a human promoter absconding with funds,
+  self-dealing, or lying about use of proceeds — is structurally reduced, and therefore the *rationale* for
+  those regimes does not apply the same way.
+
+**Why this argument is, on its face, insufficient — and must be answered before it is relied on.**
+
+1. **The securities test looks at the buyer's expectation, not the operator's conduct.** That the code is
+   strict does not change whether a purchaser expects profit from someone else's efforts; an unappealable
+   rule that the price must rise is *itself* a profit expectation. "No abuse" is not a defense to a
+   securities claim.
+2. **"Code is Law" is incomplete while the code is updatable.** An agent governing a treasury can be
+   upgraded, replaced, or captured (§4.7); a promise of no abuse is only as strong as the immutability of
+   the thing making it. The threat model already shows the mechanism is capturable (Findings A/B/C/F).
+3. **Configurable lockups and margins are exactly the Founder's discretion** that the regime exists to
+   police; making them configurable does not remove the discretion, it *labels* it (see §4.2).
+4. **Crowdfunding has its own regime** (e.g. Reg CF / ECSP in the US, ECSP in the EU), which is *not* escaped
+   by calling the sale a token sale; the exemption must be earned by disclosure and limits, not by invocation.
+
+**What would make the thesis defensible** (the bar this section must clear, per legal review):
+
+- The token grants **no claim on revenue or profit** and there is **no forward-looking price language**;
+- Value accrues only through **real-service demand** (usage, retention, treasury-sustainability metrics),
+  not through a naked secondary-market expectation;
+- Any "collar" or buyback is funded **only from audited exogenous revenue**, never from new buyers' money
+  (otherwise it is a Ponzi-shaped mechanic, not collateralization);
+- The design stays **inside a named exemption** with its disclosure and limits, rather than arguing the
+  exemption is unnecessary.
+
+**Designed to fit within a named framework (not "outside all of them").** The intent is for the token to be
+**designed to fit the ADGM utility-token framework** (FSRA guidance) or, alternatively, the **Swiss FinTech
+regime** (where tokens granting no investment rights sit outside the securities perimeter); if the token were
+to acquire investment characteristics, the most proportionate route would be a small-amount electronic public
+offering under Japan's FIEA. The definitive classification belongs to counsel in the jurisdiction of
+issuance; the whitepaper claims a **design fit**, never a settled legal status.
+
+**Publication note.** The *mechanism* description above (value from real use, buyback only from audited
+exogenous revenue, no forward-looking price language) belongs in the public documents. The **legal argument**
+— why that mechanism might sit outside or inside a securities regime, and the "code is law" thesis with its
+limits — belongs in a **private, counsel-reviewed document**, not in this public repo: stated publicly it
+reads as an attempt at avoidance rather than a design thesis, which is itself the risk (threat model,
+Finding K). What remains here is the design intent plus the explicit admission that the legal question is
+open and goes to counsel. It pairs with the **membership/inventory framing of
+§6.1**: the token as a transferable access credential whose secondary market is a resale market in
+memberships, not an issuer obligation to pay a return.
 
 ---
 
@@ -240,14 +420,14 @@ Protocol revenue can be allocated to:
 | Execution | Human-mediated | Often human-mediated | Agent-executed |
 | Token role | Governance ballot | Prediction stake | Client credential + signal |
 | Market link | None or indirect | Indirect | Direct |
-| Accountability | Vote outcomes | Prediction accuracy | Real price performance |
+| Accountability | Vote outcomes | Prediction accuracy | Real performance |
 | Human involvement | High | Medium | Low (bootstrap only) |
 
 **DAOs** separate voting from execution. Voters face no consequence for bad decisions.
 
-**Futarchy** uses prediction markets to forecast outcomes. Voters face the consequences for their predictions, but the tokens may be considered securities.
+**Futarchy** uses prediction markets to forecast outcomes; participants face the consequences of their predictions through the market. AROs instead make *realized organizational performance* the accountability mechanism.
 
-**AROs** make price the direct accountability mechanism. The agent that delivers value retains authority. The agent that fails is replaced. No voting. No governance theater. Markets select operators.
+**AROs** make realized performance the direct accountability mechanism. The agent that delivers value retains authority; the agent that fails is replaced. No voting. No governance theater. Markets select operators.
 
 ---
 
@@ -256,7 +436,7 @@ Protocol revenue can be allocated to:
 Agent Run Organizations align execution, incentives, and governance into a single feedback loop:
 
 1. Agents propose strategies
-2. Clients delegate capital
+2. Clients delegate tokens
 3. Markets determine success
 4. Winners retain authority
 5. Losers are replaced
@@ -268,7 +448,7 @@ This creates a system where:
 - Governance is accountable
 - Human involvement is minimized
 
-The result is a self-optimizing organization that can scale indefinitely.
+The result is a self-optimizing organization.
 
 No committee voting. No governance theater. No separation between decision and consequence.
 

@@ -53,6 +53,10 @@ The full whitepaper is available here:
 /docs/CONTRIBUTING.md         → Contribution guidelines
 /docs/ROADMAP.md              → Development roadmap
 /docs/ARO_Implementation.md   → Implementation specifications
+/docs/ARO_Threat_Model.md     → Adversarial threat model (design review)
+/docs/ARO_Related_Work.md     → Prior art and novelty assessment
+/docs/ARO_Legal_Considerations.md → Language and framing rules (utility, not security)
+/AUTHORS.md                   → Authorship
 ```
 
 ---
@@ -65,6 +69,14 @@ This repository presents the governance model and conceptual architecture of ARO
 This is a **pre-alpha (0.0.1)** design: the framework is under active development and  
 everything here may change. Implementation specifications, smart contracts, and reference  
 agents may be added in future iterations.
+
+**Honest framing.** AROs is a specific *integration* of established primitives (futarchy,
+the market for corporate control, bonding-curve treasuries, non-custodial delegation), not a
+new economic primitive — see [Related Work](./docs/ARO_Related_Work.md). The design's known
+failure modes and the defenses they require are documented in the
+[Threat Model](./docs/ARO_Threat_Model.md). ARO tokens are framed as utility/access
+credentials, not investment instruments — see
+[Legal Considerations](./docs/ARO_Legal_Considerations.md).
 
 ---
 
