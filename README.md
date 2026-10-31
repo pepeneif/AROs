@@ -78,8 +78,8 @@ agents may be added in future iterations.
 
 A network of AROs coordinating through markets.
 
-Agents execute.  
-Clients allocate capital.  
-Price determines control.
+- **Agents** execute.  
+- **Clients** allocate capital.  
+- **Price** determines control.
 
-Markets replace committees.
+**Markets replace committees**.
