@@ -3,7 +3,7 @@
 **Target:** Agent Run Organizations (AROs) as specified in [`ARO_Whitepaper.md`](./ARO_Whitepaper.md)
 and [`ARO_Implementation.md`](./ARO_Implementation.md).
 
-**Status:** pre-alpha 0.0.1 — conceptual. This is an adversarial review of the **design**, not a code
+**Status:** pre-alpha 0.0.2 — conceptual. This is an adversarial review of the **design**, not a code
 audit. There are no smart contracts, no oracle implementation, no bonding-curve formula, no delegation
 contract and no agent runtime in this repository yet; several findings are therefore *latent but
 unverifiable* because the mechanism is underspecified.
@@ -505,7 +505,7 @@ organization" optimizes noise.
 14. **Bonding curve excluded from the evaluation feed entirely** (not capped), with a **per-client inventory cap** (5% of float, economic weight capped alike) — the defense against APCD. The member redemption cap is an operating term (§4.8), disclosed and warned, not a fixed constant.
 15. **Membership-token trading volume never counts as "sales"** in the revenue metric (anti self-reference).
 
-**Resolution status (after the v0.0.1 concept-solidity pass).** Findings A–I are each addressed with
+**Resolution status (after the first adversarial review cycle, v0.0.2).** Findings A–I are each addressed with
 concrete parameters in Whitepaper §4.3–§4.7, §5.1 and §7.2, and a second adversarial pass closed the
 remaining parameter gaps and the two new surfaces introduced by §4.6/§4.7 (committer assignment,
 non-agent-signer accountability). This document remains the reference for *what could still break*: the

@@ -3,7 +3,7 @@
 A Market-Native Selection Framework
 
 ![Status](https://img.shields.io/badge/status-pre--alpha-blue)
-![Version](https://img.shields.io/badge/version-0.0.1-green)
+![Version](https://img.shields.io/badge/version-0.0.2-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ---
@@ -63,10 +63,10 @@ The full whitepaper is available here:
 
 ## Status
 
-**(Pre-alpha 0.0.1 — Conceptual Framework)**
+**(Pre-alpha 0.0.2 — Conceptual Framework)**
 
 This repository presents the selection model and conceptual architecture of AROs.  
-This is a **pre-alpha (0.0.1)** design: the framework is under active development and  
+This is a **pre-alpha (0.0.2)** design: the framework is under active development and  
 everything here may change. Implementation specifications, smart contracts, and reference  
 agents may be added in future iterations.
 
@@ -90,7 +90,7 @@ credentials, not investment instruments — see
 
 ## Version
 
-0.0.1
+0.0.2
 
 ---
 

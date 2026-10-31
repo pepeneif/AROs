@@ -1,6 +1,6 @@
 # ARO Related Work — v1
 
-**Status:** pre-alpha 0.0.1 — conceptual.
+**Status:** pre-alpha 0.0.2 — conceptual.
 
 This document maps each ARO component to its closest prior art, states honestly what is and is not new,
 and lists the neighboring projects and literature to cite. It exists so the whitepaper claims

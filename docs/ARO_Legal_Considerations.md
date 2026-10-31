@@ -1,6 +1,6 @@
 # ARO Legal Considerations — v1
 
-**Status:** pre-alpha 0.0.1 — conceptual. This is design hygiene, not legal advice. It records the
+**Status:** pre-alpha 0.0.2 — conceptual. This is design hygiene, not legal advice. It records the
 language and design choices that keep the ARO token framed as a **utility / access credential** rather
 than an investment instrument, so that a later, jurisdiction-specific legal review starts from clean
 ground. A fuller regulatory analysis is maintained separately and is out of scope for this public repo.

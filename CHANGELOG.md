@@ -1,9 +1,15 @@
 # Changelog
 
 All notable changes to the AROs concept are documented here. This project follows a
-`major.minor.patch` scheme; while pre-alpha, only the patch field moves.
+`major.minor.patch` scheme; pre-alpha, so the minor field moves on each completed review cycle.
 
-## [0.0.1] — 2026-10-31
+## [0.0.2] — 2026-10-31 — First adversarial review cycle
+
+The first full pass of adversarial review is complete: the design was attacked by an independent
+threat-model review and a legal-framing review, the prior art was mapped to state the novelty honestly,
+the whitepaper was hardened with concrete parameters, and the political layer was removed in favour of
+selection by market consequence. Still conceptual — no contracts, no oracle, no curve formula and no
+agent runtime exist yet.
 
 ### Added
 - `docs/ARO_Threat_Model.md` — adversarial design review: 9 findings with mechanism, plausibility,
@@ -129,6 +135,12 @@ All notable changes to the AROs concept are documented here. This project follow
   not a legal defense); Finding L worsened (the fee back door stays open and no utility regime closes it).
 - **Design-philosophy section added** to the whitepaper §1; README reframed accordingly.
 - `PROPUESTA-reframe-anarquista.md` retains the round-4 proposal and the two adversarial reports' conclusions.
+
+## [0.0.1] — 2026-10-30
+
+Initial public pre-alpha: repository hygiene (`.gitignore`, untracked `.DS_Store`), README status and
+version badges, `AUTHORS.md` authorship record, license and code of conduct. The concept and the
+whitepaper first became public here.
 
 ### Notes
 - Still conceptual: no contracts, no oracle, no bonding-curve formula, no delegation contract, no agent
