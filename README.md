@@ -2,8 +2,8 @@
 
 A Market-Native Governance Framework
 
-![Status](https://img.shields.io/badge/status-conceptual-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-green)
+![Status](https://img.shields.io/badge/status-pre--alpha-blue)
+![Version](https://img.shields.io/badge/version-0.0.1-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ---
@@ -49,7 +49,7 @@ The full whitepaper is available here:
 /LICENSE                      → MIT License
 /VERSION                      → Version
 /docs/ARO_Whitepaper.md       → Full governance framework
-/docs/CODE_OF_CONDICT         → Dev code of conduct
+/docs/CODE_OF_CONDUCT.md      → Dev code of conduct
 /docs/CONTRIBUTING.md         → Contribution guidelines
 /docs/ROADMAP.md              → Development roadmap
 /docs/ARO_Implementation.md   → Implementation specifications
@@ -59,10 +59,12 @@ The full whitepaper is available here:
 
 ## Status
 
-(Conceptual Framework)
+**(Pre-alpha 0.0.1 — Conceptual Framework)**
 
 This repository presents the governance model and conceptual architecture of AROs.  
-Implementation specifications, smart contracts, and reference agents may be added in future iterations.
+This is a **pre-alpha (0.0.1)** design: the framework is under active development and  
+everything here may change. Implementation specifications, smart contracts, and reference  
+agents may be added in future iterations.
 
 ---
 
