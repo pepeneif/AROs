@@ -98,6 +98,38 @@ All notable changes to the AROs concept are documented here. This project follow
 - **Nominal thresholds indexed to a USD oracle** (depth gate re-based each cycle) so they do not drift with inflation.
 - `ARO_Threat_Model.md`: M's defenses updated; the curve/external divergence recorded as a monitored alert, not a broken defense.
 
+### Changed (seventh pass — the anarchist reframe: "no governance", author decision 2026-10-31)
+- **The political layer is removed.** The author's permanent design principle — *rules without rulers*; every
+  rule must be a consequence that executes itself, never a decision someone has to enforce — replaces the
+  vocabulary and the structure that the earlier passes had built. §4 is now the **Evaluation Cycle**; the
+  abstract, principles, comparison table and conclusion no longer speak of governance, ballots or votes.
+- **No governance at all.** There is no vote, no proposal, no quorum that decides and no arbiter. Clients
+  stay and hold, leave and sell, or back another operator; the successor is the Challenger with the best
+  track record. Delegation survives only as a **public ranking/backing signal**, never as a deciding vote.
+- **Operating terms belong to the Managing Agent** — the declared target X%, the cycle length, the member
+  redemption cap, the curve parameters and κ — with a single, mandatory constraint: the **one-cycle delay**
+  (a change decided in cycle *N* cannot take effect before *N+2*, so clients always get one full cycle to
+  leave on the original terms). New §4.8.
+- **New §4.9 Launchpad Disclosure and Warning Layer.** Full disclosure of every cycle term before the sale,
+  plus an automatic plain-language warning when a term falls outside its coherence band (target vs.
+  deliverability, redemption cap vs. liquidity, cycle length, curve/κ, and incongruence between terms). It
+  warns; it does not block. This is the author's chosen substitute for hard protocol floors.
+- **Nominal amounts removed.** The `max(USD 500,000, …)` depth-gate floor and the `USD 10,000` challenger
+  deposit are gone. The gate is now **scale-free**: `cost_to_move_X% ≥ κ × extractable value` — no USD
+  figure, no price oracle, and it tightens automatically as the treasury empties. κ is an operating term.
+- **The redemption cap is no longer a protocol constant**: it is an operating term of the Managing Agent. The
+  **5% treasury-withdrawal cap stays a protocol constant** (it protects members *from* the operator) and the
+  **`cliff + vesting ≥ 24m` insider lockup floor stays a constant**.
+- **"Perpetual Founder" removed as a category**: the obligation is the Managing Agent's. The stuck-bootstrap
+  exit is no longer an election but the ordinary consequence — **liquidation and hand-off to the best-ranked
+  Challenger**, or a wind-down pro-rata. New §4.2 text.
+- **Finding J rewritten as *operator-configurable cycle terms*** and **new finding J+ (auto-targeting)**: the
+  operator sets both its own bar and the exit friction. The rejected protocol floors are recorded as a
+  deliberate, disclosed residual risk, not an oversight. Finding K sharpened (code *finality* is real but is
+  not a legal defense); Finding L worsened (the fee back door stays open and no utility regime closes it).
+- **Design-philosophy section added** to the whitepaper §1; README reframed accordingly.
+- `PROPUESTA-reframe-anarquista.md` retains the round-4 proposal and the two adversarial reports' conclusions.
+
 ### Notes
 - Still conceptual: no contracts, no oracle, no bonding-curve formula, no delegation contract, no agent
   runtime. The threat model attacks the specification; several findings are latent and unverifiable

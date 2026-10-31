@@ -28,7 +28,7 @@ Two rules follow:
 |-------|-----|-------------|
 | "Fee capture — exposure to protocol revenue" | Reads as a promise of return = investment contract | "Tokens grant access to protocol services. They do not represent a claim on protocol revenue." |
 | "Investment thesis" / "investors" | Casts the document as a prospectus | "Value proposition" / "participants" / "clients" |
-| "Target appreciation threshold" as the *governance* criterion | Makes price the standard, implying profit expectation | Prefer non-price governance metrics (service usage, retention, treasury sustainability); where price is used, describe it as a *performance reference*, not a return |
+| "Target appreciation threshold" as the *selection* criterion | Makes price the standard, implying profit expectation | Prefer non-price service metrics (service usage, retention, treasury sustainability); where price is used, describe it as a *performance reference*, not a return |
 | "Rewards", "yield", "returns", "upside" | Financial-return framing | "Access", "participation", "coordination" |
 | "The token will appreciate" | Forward-looking profit claim | No forward-looking price language at all |
 
@@ -40,8 +40,8 @@ Two rules follow:
 
 The token is designed to function as:
 1. **A client credential.** Holding at least one token grants access to the organization's services.
-2. **A coordination signal.** Clients express confidence or no-confidence by holding, buying, selling or
-   delegating — a governance *mechanism*, not a governance *ballot*.
+2. **A market signal.** Clients express confidence or no-confidence by holding, buying, selling or backing
+   an operator — a *market mechanism*: there is no vote to cast, and no ballot exists.
 3. **Not a security or a share.** No dividend, no revenue share, no redemption right, no claim on assets,
    no expectation of profit derived from the efforts of others.
 
@@ -71,8 +71,12 @@ securities and crowdfunding rules. Treat that as an **untested thesis**, and not
 - **Conduct is not the test.** Securities analysis asks what the buyer expects and whether they rely on
   others' efforts. A strict, unappealable rule that price must rise is itself a profit expectation; "the
   agent will not abuse" is not a defense.
-- **"Code is Law" weakens while the code is upgradeable.** An updatable treasury/governance contract is a
-  discretionary human decision point every time it is upgraded, which is precisely what the regimes police.
+- **"Code is Law" weakens while the code is upgradeable.** An updatable treasury contract is a
+  discretionary decision point every time it is upgraded, which is precisely what the regimes police.
+  *Nuance from the 2026-10-31 reframe:* the author's claim is about the **settlement** — an executed
+  consequence cannot be reversed, censored, bribed, exempted or reinterpreted after the fact. That claim is
+  real and is the reason an ARO has no arbiter. It is **not** a defense before a regulator: the code that
+  defines the consequence can still be upgraded, and finality is not a legal test.
 - **A named exemption must be earned, not invoked.** Crowdfunding regimes (e.g. Reg CF/ECSP in the US,
   ECSP in the EU) apply to token sales too; the path is disclosure + limits inside an exemption, not the
   argument that no exemption is needed.
@@ -83,6 +87,19 @@ securities and crowdfunding rules. Treat that as an **untested thesis**, and not
 
 Make/lose decision on this thesis is a job for counsel in the build phase; this file only fixes the framing
 rules so the public documents do not assume the answer.
+
+**The "no governance" reframe (2026-10-31) — do not put it in the public repo.** The author has made
+"there is no governance; nature enforces the rules" a permanent design principle. As an **internal design
+thesis** it is coherent and is what drives §4.8–§4.9. As a **public legal argument** it is worse than
+neutral, for two reasons: (i) securities analysis looks at the buyer's expectation and reliance on others'
+*efforts*, not at the operator's honesty — removing every right of control (no vote, no proposal, no
+arbiter) makes the holder the **most passive** investor possible, which strengthens rather than weakens the
+"efforts of others" prong; and (ii) removing all holder control is irrelevant under regimes that do not
+require control at all — in **Singapore** the natural container is a **collective investment scheme** (pooled
+capital managed by another for a return), which **does not require voting rights**. So: keep the design
+principle in the private memo, and in the public documents state only the **facts** (what the token is not:
+no vote, no proposal, no control, no revenue claim, no redemption right, no promised buyback), never the
+legal **conclusion**.
 
 **Membership / inventory framing (Whitepaper §6.1).** Framing the token as a warehouse-club membership with
 a resale market (buyers accumulate memberships and resell at a curve premium, bearing inventory risk) is

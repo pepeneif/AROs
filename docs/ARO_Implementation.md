@@ -23,7 +23,7 @@ Treasury management will be handled by a specialized treasurer agent, which poss
 
 Upon the dismissal of any manager agent, the treasurer agent will seamlessly transition to serve the newly selected manager agent, chosen from challenger agents based on their track record and client confidence.
 
-The weighting of track record versus client confidence will be initially established by the project's founder at launch and can be adjusted through proposals from manager agents during their tenure.
+The weighting of track record versus client backing will be initially established at launch and can be adjusted by the Managing Agent as an operating term, subject to the one-cycle delay rule (Whitepaper §4.8).
 
 - **Minimum Supported Blockchains at launch**: Ethereum, Polygon, Solana, Bitcoin, Lightning Network, TARO Assets
 
@@ -39,17 +39,17 @@ The weighting of track record versus client confidence will be initially establi
 - **Not Native Tokens**: Agents do not hold blockchain native tokens (ETH, SOL, BTC) directly
 - **Utility Functions**:
   - Client access credential
-  - Governance signaling mechanism
+  - Market signaling mechanism (no vote)
   - Performance-based rewards distribution
   - Service access (no claim on protocol revenue)
 
-### Governance Mechanism
+### Selection Mechanism
 
-- **Performance Metric**: Manipulation-resistant performance score over governance cycles (whole-cycle, multi-venue, commit-reveal price measurement with an assigned deterministic committer; median-of-medians with ±25% outlier discard). The **price signal alone decides transitions**; audited exogenous revenue is a **separate gate** (emissions/withdrawals, `K=2` freeze), not a weighted share of the transition (weakest-link, see Whitepaper §4.6). Revenue counting excludes related-party payments, uses cash basis for delivered services, and applies a payer-concentration cap (no payer > 20%, top-5 ≤ 60%).
-  - Robustness gates: venue depth ≥ max(USD 500,000, 10× cost-to-move-X%), ≥20% float participation, ≥3 venues of which ≥2 not treasury-seeded; below the gates the cycle resolves as *indecided* (caretaker continuation capped at two cycles).
+- **Performance Metric**: Manipulation-resistant performance score over evaluation cycles (whole-cycle, multi-venue, commit-reveal price measurement with an assigned deterministic committer; median-of-medians with ±25% outlier discard). The **price signal alone decides transitions**; audited exogenous revenue is a **separate gate** (emissions/withdrawals, `K=2` freeze), not a weighted share of the transition (weakest-link, see Whitepaper §4.6). Revenue counting excludes related-party payments, uses cash basis for delivered services, and applies a payer-concentration cap (no payer > 20%, top-5 ≤ 60%).
+  - Robustness gates (**scale-free, no nominal amounts**): venue depth `cost_to_move_X% ≥ κ × extractable value` (no USD figure, no price oracle; κ an operating term), a participation **validity** gate (a measurement condition, not a political quorum), ≥3 venues of which ≥2 not treasury-seeded; below the gates the cycle resolves as *indecided* (caretaker continuation capped at two cycles).
   - No-revenue freeze: if audited exogenous revenue fails to grow for two consecutive cycles (K=2), emissions and treasury withdrawals freeze.
 - **Cycle Duration**: Configurable (default: monthly), proposed by managing agent
-- **Anti-APCD controls**: bonding curve excluded from the governance feed; per-client inventory cap (5% of float, governance weight capped alike); aggregate per-cycle redemption cap; correlated-accumulation detection across wallets
+- **Anti-APCD controls**: bonding curve excluded from the evaluation feed; per-client inventory cap (5% of float, economic weight capped alike); correlated-accumulation detection across wallets. The member **redemption cap is an operating term of the Managing Agent** (§4.8), disclosed on the launchpad and disciplined by the market, not a fixed constant.
 - **Revenue definition (anti self-reference)**: only fees collected in external assets for services delivered; membership-token trading volume on any venue never counts toward revenue
 - **Evaluation Criteria**: Freely proposed by agents, influenced by client buying/selling behavior
 - **Transition Logic**: Challenger agents can replace managing agent if token performance falls below threshold
@@ -70,7 +70,7 @@ The weighting of track record versus client confidence will be initially establi
    - Executes organizational strategy
    - Deploys sub-agents for specialized functions
    - Publishes cycle reports and performance targets
-   - Proposes governance cycle parameters
+   - Sets its cycle operating terms (target, cycle length, redemption cap), subject to the one-cycle delay
 
 2. **Challenger Agents**
    - Propose alternative strategies
@@ -104,12 +104,12 @@ New blockchain skills can be added through:
 
 ## Smart Contract Layer
 
-### Cross-Chain Governance Contract
+### Cross-Chain Selection Contract
 
 - **Platform Agnostic**: Core logic deployable on multiple chains
 - **Token Integration**: Accepts project token from any supported network
 - **Agent Registry**: Tracks agent deployments and permissions
-- **Cycle Management**: Handles governance cycle timing and transitions
+- **Cycle Management**: Handles evaluation-cycle timing and transitions
 
 ### Performance Oracle
 
@@ -124,7 +124,7 @@ New blockchain skills can be added through:
 - **Multi-Chain Portfolio**: Unified view of holdings across blockchains
 - **Agent Performance**: Real-time monitoring of agent strategies
 - **Token Allocation**: Interface for reallocating tokens to challenger agents
-- **Governance Participation**: Voting through capital allocation
+- **Market Participation**: Expressing preference through capital allocation; no vote is cast
 
 ### API Integration
 
@@ -159,8 +159,8 @@ New blockchain skills can be added through:
 - Basic wallet management across 3 blockchains
 - Project token deployment
 
-### Phase 2: Governance Layer
-- Cross-chain governance contracts
+### Phase 2: Selection Layer
+- Cross-chain selection contracts
 - Performance evaluation system
 - Agent transition logic
 
@@ -172,4 +172,4 @@ New blockchain skills can be added through:
 ### Phase 4: Production Deployment
 - Security audits
 - Mainnet deployment
-- Community governance activation
+- Market-based selection activation
