@@ -6,7 +6,7 @@ All notable changes to the AROs concept are documented here. This project follow
 ## [0.0.2] — 2026-10-31 — First adversarial review cycle
 
 The first full pass of adversarial review is complete: the design was attacked by an independent
-threat-model review and a legal-framing review, the prior art was mapped to state the novelty honestly,
+threat-model review and a legal-framing review, the prior art was mapped to state what is and is not new,
 the whitepaper was hardened with concrete parameters, and the political layer was removed in favour of
 selection by market consequence. Still conceptual — no contracts, no oracle, no curve formula and no
 agent runtime exist yet.
@@ -28,7 +28,7 @@ agent runtime exist yet.
   "realized performance".
 - Implementation: performance metric now manipulation-resistant and revenue-weighted; wallet management
   now points to the succession-safety rules.
-- README: documented the new docs and added an honest-framing note.
+- README: documented the new docs and added a framing note.
 - Repository hygiene: untracked `.DS_Store`, added `.gitignore`, fixed `CODE_OF_CONDUCT` link.
 
 ### Fixed (second adversarial pass — Auditor + Abogado)

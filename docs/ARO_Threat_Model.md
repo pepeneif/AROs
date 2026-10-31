@@ -399,7 +399,7 @@ that, because an agent executes the protocol strictly, the abuses securities and
 built to prevent cannot occur, so those regimes should not apply.
 
 **Why it is a plausible failure.** The argument conflates *conduct* with *test*. Securities analysis looks
-at the buyer's expectation and their reliance on others' efforts, not at the operator's honesty; an
+at the buyer's expectation and their reliance on others' efforts, not at whether the operator means well; an
 unappealable rule that price must rise is itself a profit expectation. "Code is law" also weakens while the
 governing code is upgradeable, and crowdfunding exemptions must be earned by disclosure and limits, not
 invoked. Severity is high because the *reliance* on this argument (not the mechanic itself) is what invites

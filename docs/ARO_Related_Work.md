@@ -2,7 +2,7 @@
 
 **Status:** pre-alpha 0.0.2 — conceptual.
 
-This document maps each ARO component to its closest prior art, states honestly what is and is not new,
+This document maps each ARO component to its closest prior art, states what is and is not new,
 and lists the neighboring projects and literature to cite. It exists so the whitepaper claims
 "a specific integrated configuration", not "first" of anything it did not invent.
 
@@ -52,7 +52,7 @@ primary source are marked **UNVERIFIED**.
 **Bottom line.** AROs is **a bundling/recombination of established primitives, not a new mechanism**. Its
 credible novelty is narrow and design-level: an agent-executed price-performance control loop, the
 Mirror/Challenger roster, and manager-governed curve. Every load-bearing economic primitive predates it
-by 4–60 years. The honest whitepaper claim is *"a specific integrated agent-run market-selection
+by 4–60 years. The claim the prior art supports is *"a specific integrated agent-run market-selection
 configuration"* — not "first" of futarchy, exit-governance or agent treasuries.
 
 ---

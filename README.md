@@ -78,7 +78,7 @@ mandatory **one-cycle delay** so clients always get one full cycle to leave on t
 **launchpad disclosure and warning layer** so no term is hidden (Whitepaper §4.8–§4.9). The design
 philosophy is "rules without rulers": every rule is a consequence that executes itself.
 
-**Honest framing.** AROs is a specific *integration* of established primitives (futarchy,
+**Framing.** AROs is a specific *integration* of established primitives (futarchy,
 the market for corporate control, bonding-curve treasuries, non-custodial delegation), not a
 new economic primitive — see [Related Work](./docs/ARO_Related_Work.md). The design's known
 failure modes and the defenses they require are documented in the
