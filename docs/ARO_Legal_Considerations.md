@@ -1,6 +1,6 @@
 # ARO Legal Considerations — v1
 
-**Status:** pre-alpha 0.0.2 — conceptual. This is design hygiene, not legal advice. It records the
+**Status:** pre-alpha 0.0.1 — conceptual. This is design hygiene, not legal advice. It records the
 language and design choices that keep the ARO token framed as a **utility / access credential** rather
 than an investment instrument, so that a later, jurisdiction-specific legal review starts from clean
 ground. A fuller regulatory analysis is maintained separately and is out of scope for this public repo.
@@ -88,18 +88,14 @@ securities and crowdfunding rules. Treat that as an **untested thesis**, and not
 Make/lose decision on this thesis is a job for counsel in the build phase; this file only fixes the framing
 rules so the public documents do not assume the answer.
 
-**The "no governance" reframe (2026-10-31) — do not put it in the public repo.** The author has made
-"there is no governance; nature enforces the rules" a permanent design principle. As an **internal design
-thesis** it is coherent and is what drives §4.8–§4.9. As a **public legal argument** it is worse than
-neutral, for two reasons: (i) securities analysis looks at the buyer's expectation and reliance on others'
-*efforts*, not at the operator's honesty — removing every right of control (no vote, no proposal, no
-arbiter) makes the holder the **most passive** investor possible, which strengthens rather than weakens the
-"efforts of others" prong; and (ii) removing all holder control is irrelevant under regimes that do not
-require control at all — in **Singapore** the natural container is a **collective investment scheme** (pooled
-capital managed by another for a return), which **does not require voting rights**. So: keep the design
-principle in the private memo, and in the public documents state only the **facts** (what the token is not:
-no vote, no proposal, no control, no revenue claim, no redemption right, no promised buyback), never the
-legal **conclusion**.
+**Facts only — no legal conclusion.** Because AROs removes every right of control (no vote, no proposal,
+no arbiter), the public documents must state only what the token **is not** — no vote, no proposal right, no
+control, no claim on revenue, no redemption right, no promised buyback — and the fact that selection is
+automatic. They must **never** state a legal conclusion ("therefore it is not a security"): that conclusion
+belongs to a court or a regulator. Removing holder control is **not** a defence — it makes the holder the most
+passive participant, and it is irrelevant under regimes that do not require control at all (Singapore's
+collective investment scheme has no voting requirement). The legal question — including the separate
+market-operator question — is open and goes to **counsel in the jurisdiction of issuance**.
 
 **Membership / inventory framing (Whitepaper §6.1).** Framing the token as a warehouse-club membership with
 a resale market (buyers accumulate memberships and resell at a curve premium, bearing inventory risk) is
