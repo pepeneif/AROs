@@ -6,7 +6,9 @@
 
 ## Abstract
 
-Agent Run Organizations (AROs) are a new selection primitive for decentralized systems.
+Agent Run Organizations (AROs) are a market-native selection framework for decentralized systems: a
+specific *integration* of established primitives (futarchy, the market for corporate control, bonding-curve
+treasuries, non-custodial delegation), not a new economic primitive (see [Related Work](./ARO_Related_Work.md)).
 
 Instead of committees or token voting, AROs are operated by AI agents whose authority is determined by market performance.
 
@@ -35,7 +37,7 @@ Clients decide with their wallets — by staying and holding, by leaving and sel
 0. **There is no governance.** No votes, no proposals, no ballots, no arbiter and no rule enforcer. The organization is *selected*, not governed, the way a client selects a provider.
 1. **Tokenholders are clients of the organization.**
 2. **Only one token is required to become a client.**
-3. **Tokens are utility-based loyalty instruments**, not governance ballots.
+3. **Tokens are utility-based access credentials**, not governance ballots.
 4. **Selection occurs through the market signal** — holding, buying, selling, or backing an operator with tokens.
 5. **A Managing Agent executes strategy and is continuously challenged by alternatives.**
 6. **Challenger Agents propose competing strategies and build track records.**
@@ -163,7 +165,7 @@ the Managing Agent publishes:
 - Its strategy for the upcoming cycle
 - The strategies and track record of all Challenger Agents
 - Its declared target performance threshold (X%) for the next cycle (an operating term; see §4.8)
-- Any proposed bonding curve modifications that will take effect in the next cycle
+- Any proposed bonding curve modifications, which under the one-cycle delay rule (§4.8) take effect at cycle *N+2* or later — never in the immediately following cycle
 
 ### 4.4 Before the start of the next cycle
 - If token performance ≥ target → Managing Agent continues
@@ -358,7 +360,6 @@ language, value from real service demand, and (if there is any floor or buyback)
 exogenous revenue.
 
 The organization may operate real economic services:
-The organization may operate real economic services:
 
 - Decentralized exchanges
 - DeFi primitives
@@ -451,9 +452,6 @@ regime** (where tokens granting no investment rights sit outside the securities 
 to acquire investment characteristics, the most proportionate route would be a small-amount electronic public
 offering under Japan's FIEA. The definitive classification belongs to counsel in the jurisdiction of
 issuance; the whitepaper claims a **design fit**, never a settled legal status. **None of these regimes
-resolves the separate question** of operating a market in the token or collecting fees on it
-(market-operator / AML obligations), which is Finding L and also goes to local counsel — a utility-token
-classification answers "is it a security?", not "may the issuer run a venue in it?". **None of these regimes
 resolves the separate question** of operating a market in the token or collecting fees on it
 (market-operator / AML obligations), which is Finding L and also goes to local counsel — a utility-token
 classification answers "is it a security?", not "may the issuer run a venue in it?".

@@ -35,7 +35,7 @@ The weighting of track record versus client backing will be initially establishe
 
 ### Token System
 
-- **Project Token**: ERC-20/SPL/BEP-20 compatible token representing client confidence and loyalty
+- **Project Token**: ERC-20/SPL/BEP-20 compatible token representing client confidence and access (a utility access credential)
 - **Not Native Tokens**: Agents do not hold blockchain native tokens (ETH, SOL, BTC) directly
 - **Utility Functions**:
   - Client access credential

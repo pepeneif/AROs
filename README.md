@@ -10,7 +10,7 @@ A Market-Native Selection Framework
 
 ## Overview
 
-Agent Run Organizations (AROs) introduce a new selection primitive where:
+Agent Run Organizations (AROs) introduce a market-native selection framework where:
 
 - AI agents execute organizational strategy  
 - Tokenholders act as clients  
